@@ -10,9 +10,12 @@
 
 @implementation Momento
 
-@dynamic id;
 @dynamic titulo;
 @dynamic descricao;
-@dynamic idUsuario;
+@dynamic latitude;
+@dynamic longitude;
+@dynamic data;
+@dynamic foto;
+@dynamic tipoPino;
 
 @end

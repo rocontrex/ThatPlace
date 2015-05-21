@@ -86,10 +86,10 @@
     
     if (mainMapkit.annotations.count > 0){
         if (mainMapkit.annotations.count == 1){
-                Momento *momento = [[[MomentoStore sharedStore]getAllMomento] objectAtIndex:[[[MomentoStore sharedStore]getAllMomento]count]-1];
+                //Momento *momento = [[[MomentoStore sharedStore]getAllMomento] objectAtIndex:[[[MomentoStore sharedStore]getAllMomento]count]-1];
             
                 CustomAnnotation* myAnnot = [mainMapkit.annotations objectAtIndex:0];
-                myAnnot.title = momento.titulo;
+                //myAnnot.title = momento.titulo;
             }
             else{
                 for (CustomAnnotation* myAnnot in mainMapkit.annotations){

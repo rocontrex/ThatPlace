@@ -7,94 +7,71 @@
 //
 
 #import "MomentoStore.h"
-#import "Momento.h"
 #import "AppDelegate.h"
 
-@import CoreData;
+@interface MomentoStore()
 
-@interface MomentoStore ()
-
-@property (nonatomic) NSMutableArray *privateItems;
-@property (nonatomic,strong) NSManagedObjectContext *managedObjectContext;
+@property(nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
 @implementation MomentoStore
 
-+(instancetype)sharedStore{
-    static MomentoStore *sharedStore = nil;
+static NSString *DATA_MODEL_ENTITY_NAME = @"Momento";
+
++(instancetype)instancia{
+    static MomentoStore *instancia = nil;
     
-    if(!sharedStore){
-//        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        sharedStore = [[self alloc]initPrivate];
-//        [[MomentoStore sharedStore] setManagedObjectContext:appDelegate.managedObjectContext];
+    if (!instancia) {
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        
+        instancia = [[self alloc] initPrivate];
+        instancia.managedObjectContext = appDelegate.managedObjectContext;
+        
+        //[instancia zerarStoredData];
     }
-    return sharedStore;
+    
+    return instancia;
 }
--(instancetype)initPrivate{
+
+- (instancetype)initPrivate {
     self = [super init];
     return self;
 }
-//Excessão caso tente criar objeto na marra
--(instancetype)init{
-    @throw [NSException exceptionWithName:@"Singleton" reason:@"Use +[MomentoStore]" userInfo:nil];
-    return nil;
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"Singleton" reason:@"Use +[MomentoStore instancia]"userInfo:nil];
 }
--(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext{
-    if(!self.managedObjectContext){
-        _managedObjectContext = managedObjectContext;
-        [self loadAllMomento];
+
+- (void)zerarStoredData{
+    // Delete all objects
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:DATA_MODEL_ENTITY_NAME];
+    NSError *error;
+    NSArray *objects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if (error) {
+        NSLog(@"Error fetching objects: %@", error.userInfo);
+    }
+    
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    for (NSManagedObject *object in objects) {
+        [self.managedObjectContext deleteObject:object];
     }
 }
--(void)createMomentoWithTitulo:(NSString *)titulo andDescricao:(NSString *)descricao andIdUsuario:(NSString *)idUsuario{
+
+- (Momento *) createMomentoWithTitulo:(NSString *)titulo andDescricao:(NSString *)descricao andLatitude:(float)latitude andLongitude:(float)longitude andData:(NSDate *)data andFoto:(UIImage *)foto andTipoPino:(int)tipoPino{
     
-    //    Momento *momento = [NSEntityDescription
-    //                                insertNewObjectForEntityForName:DATA_MODEL_ENTITY_NAME
-    //                                inManagedObjectContext:self.managedObjectContext];
-    Momento *momento = [NSEntityDescription insertNewObjectForEntityForName:@"Momento" inManagedObjectContext:self.managedObjectContext];
     
-    momento.id = [[[NSUUID alloc] init] UUIDString];
+    Momento * momento = [NSEntityDescription insertNewObjectForEntityForName:DATA_MODEL_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+    
     momento.titulo = titulo;
     momento.descricao = descricao;
-    momento.idUsuario = idUsuario;
+    momento.latitude = [NSNumber numberWithFloat:latitude];
+    momento.longitude = [NSNumber numberWithFloat:longitude];
+    momento.data = data;
+    momento.foto = foto;
+    momento.tipoPino = tipoPino;
     
-    NSError *error;
-    
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Could not save %@, %@", error, error.userInfo);
-    }
-}
-
-/**AQUI FOI REMOVIDO A CONDICIONAL DO LOAD ALL MOMENTS PARA QUE POSSA SER EXECUTADO TODAS AS VEZES**/
--(void)loadAllMomento{
-//    if(!self.privateItems){                                                //Nome da ENTIDADE, não da classe
-        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Momento"];
-        NSError *error;
-        NSArray *result = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-        if(!result){
-            [NSException raise:@"Fetch failed" format:@"Reason: %@",[error localizedDescription]];
-        }
-        self.privateItems = [NSMutableArray arrayWithArray:result];
-    }
-//}
--(NSArray*)getAllMomento{
-    return [self.privateItems copy];
-}
-
-- (BOOL)saveChanges {
-    NSError *error;
-    
-    if ([self.managedObjectContext hasChanges]) {
-        BOOL successful = [self.managedObjectContext save:&error];
-        
-        if (!successful) {
-            NSLog(@"Error saving: %@", [error localizedDescription]);
-        }
-        
-        return successful;
-    }
-    
-    return YES;
+    return momento;
 }
 
 @end

@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _arrayMomentos = [[MomentoStore sharedStore] getAllMomento];
+    //_arrayMomentos = [[MomentoStore sharedStore] getAllMomento];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,8 +35,8 @@
 //Adicionado
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [[MomentoStore sharedStore] loadAllMomento];
-    _arrayMomentos = [[MomentoStore sharedStore] getAllMomento];
+    //[[MomentoStore sharedStore] loadAllMomento];
+    //_arrayMomentos = [[MomentoStore sharedStore] getAllMomento];
      //[self.tableViewFeed reloadData];
     for(Momento *mom in self.arrayMomentos){
         NSLog(@"%@", mom.titulo);
@@ -46,7 +46,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [[[MomentoStore sharedStore]getAllMomento]count];
+    return 0;//[[[MomentoStore sharedStore]getAllMomento]count];
 }
 
 /**---------------------------------------------------------------------------------------------**/
@@ -75,10 +75,10 @@
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    Momento *momento = [[[MomentoStore sharedStore]getAllMomento] objectAtIndex:indexPath.row];
+    //Momento *momento = [[[MomentoStore sharedStore]getAllMomento] objectAtIndex:indexPath.row];
    
-    cell.lbTitulo.text = momento.titulo;
-    NSLog(@"Descricao: %@",momento.descricao);
+    //cell.lbTitulo.text = momento.titulo;
+    //NSLog(@"Descricao: %@",momento.descricao);
     
     return cell;
 }

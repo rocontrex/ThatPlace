@@ -12,9 +12,12 @@
 @import UIKit;
 @interface Momento : NSManagedObject
 
-@property (nonatomic, retain) NSString* id;
-@property (nonatomic, retain) NSString* titulo;
-@property (nonatomic, retain) NSString* descricao;
-@property (nonatomic, retain) NSString* idUsuario;
+@property (nonatomic, retain) NSString *titulo;
+@property (nonatomic, retain) NSString *descricao;
+@property (nonatomic, retain) NSNumber *latitude;
+@property (nonatomic, retain) NSNumber *longitude;
+@property (nonatomic, retain) NSDate *data;
+@property (nonatomic, retain) UIImage *foto;
+@property (nonatomic) int tipoPino; //Basic: 0 - Família, 1 - Feliz, 2 - Tristeza
 
 @end
