@@ -19,7 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [MomentoStore instancia];
+    NSMutableArray *n = [[MomentoStore instancia] getAllMoments];
+    NSLog(@"%lu", (unsigned long)n.count);
 }
 
 - (void)didReceiveMemoryWarning {

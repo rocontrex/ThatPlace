@@ -16,6 +16,6 @@
 @dynamic longitude;
 @dynamic data;
 @dynamic foto;
-@dynamic tipoPino;
+@dynamic tipopino;
 
 @end

@@ -28,7 +28,7 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"Momento";
         instancia = [[self alloc] initPrivate];
         instancia.managedObjectContext = appDelegate.managedObjectContext;
         
-        //[instancia zerarStoredData];
+        [instancia zerarStoredData];
     }
     
     return instancia;
@@ -48,6 +48,8 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"Momento";
     NSError *error;
     NSArray *objects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+    [self createMomentoWithTitulo:@"titulo" andDescricao:@"descricao" andLatitude:-3.134324 andLongitude:-59.992323 andData:[NSDate date] andFoto:[UIImage imageNamed:@""] andTipoPino:1];
+    
     if (error) {
         NSLog(@"Error fetching objects: %@", error.userInfo);
     }
@@ -58,7 +60,7 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"Momento";
     }
 }
 
-- (Momento *) createMomentoWithTitulo:(NSString *)titulo andDescricao:(NSString *)descricao andLatitude:(float)latitude andLongitude:(float)longitude andData:(NSDate *)data andFoto:(UIImage *)foto andTipoPino:(int)tipoPino{
+- (Momento *) createMomentoWithTitulo:(NSString *)titulo andDescricao:(NSString *)descricao andLatitude:(float)latitude andLongitude:(float)longitude andData:(NSDate *)data andFoto:(UIImage *)foto andTipoPino:(int)tipopino{
     
     
     Momento * momento = [NSEntityDescription insertNewObjectForEntityForName:DATA_MODEL_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
@@ -69,9 +71,38 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"Momento";
     momento.longitude = [NSNumber numberWithFloat:longitude];
     momento.data = data;
     momento.foto = foto;
-    momento.tipoPino = tipoPino;
+    momento.tipopino = tipopino;
     
     return momento;
+}
+
+-(NSMutableArray *)getAllMoments{
+    
+    NSFetchedResultsController *fetchedResultsControllerLocal;
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:DATA_MODEL_ENTITY_NAME inManagedObjectContext:self.managedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"titulo" ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    fetchedResultsControllerLocal = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    NSError *error = nil;
+    if (![fetchedResultsControllerLocal performFetch:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    NSMutableArray *nma = [NSMutableArray arrayWithArray:fetchedResultsControllerLocal.fetchedObjects];
+    
+    return nma;
+
 }
 
 @end

@@ -6,7 +6,7 @@
         <attribute name="foto" optional="YES" attributeType="Transformable" valueTransformerName="ImageTransformer" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="tipoPino" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tipopino" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Recurso" representedClassName="Recurso" syncable="YES">

@@ -16,6 +16,8 @@
 
 + (instancetype) instancia;
 
-- (Momento *) createMomentoWithTitulo: (NSString *) titulo andDescricao: (NSString *) descricao andLatitude: (float) latitude andLongitude: (float) longitude andData : (NSDate *) data andFoto : (UIImage *) foto andTipoPino: (int) tipoPino;
+- (Momento *) createMomentoWithTitulo: (NSString *) titulo andDescricao: (NSString *) descricao andLatitude: (float) latitude andLongitude: (float) longitude andData : (NSDate *) data andFoto : (UIImage *) foto andTipoPino: (int) tipopino;
+
+-(NSMutableArray *) getAllMoments;
 
 @end;

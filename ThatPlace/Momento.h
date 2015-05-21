@@ -18,6 +18,6 @@
 @property (nonatomic, retain) NSNumber *longitude;
 @property (nonatomic, retain) NSDate *data;
 @property (nonatomic, retain) UIImage *foto;
-@property (nonatomic) int tipoPino; //Basic: 0 - Família, 1 - Feliz, 2 - Tristeza
+@property (nonatomic) int tipopino; //Basic: 0 - Família, 1 - Feliz, 2 - Tristeza
 
 @end
