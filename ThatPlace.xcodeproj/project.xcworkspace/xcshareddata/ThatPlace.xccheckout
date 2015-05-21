@@ -10,29 +10,29 @@
 	<string>ThatPlace</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9A98232D14785B9E6FF80B01231BE6BDA558A60D</key>
-		<string>https://github.com/abnermatos/ThatPlace.git</string>
+		<key>E75E214F1E50E0D730FAFF80A02F4BA26EBEA4F3</key>
+		<string>https://github.com/rocontrex/ThatPlace.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ThatPlace/ThatPlace.xcodeproj</string>
+	<string>ThatPlace.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9A98232D14785B9E6FF80B01231BE6BDA558A60D</key>
-		<string>../../..</string>
+		<key>E75E214F1E50E0D730FAFF80A02F4BA26EBEA4F3</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/abnermatos/ThatPlace.git</string>
+	<string>https://github.com/rocontrex/ThatPlace.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9A98232D14785B9E6FF80B01231BE6BDA558A60D</string>
+	<string>E75E214F1E50E0D730FAFF80A02F4BA26EBEA4F3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9A98232D14785B9E6FF80B01231BE6BDA558A60D</string>
+			<string>E75E214F1E50E0D730FAFF80A02F4BA26EBEA4F3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ThatPlace</string>
 		</dict>
