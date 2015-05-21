@@ -16,6 +16,7 @@
 		963F6FEF1B02A441003F31AB /* RecursoStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 963F6FEE1B02A441003F31AB /* RecursoStore.m */; };
 		965BCA981B015BEB0024AAF0 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA971B015BEB0024AAF0 /* FeedTableViewController.m */; };
 		965BCA9B1B015D350024AAF0 /* FeedTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA9A1B015D350024AAF0 /* FeedTableViewCell1.m */; };
+		9F033C681B0E90BD00622327 /* ImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F033C671B0E90BD00622327 /* ImageTransformer.m */; };
 		CB0C45E81B012A8F008BCF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C45E71B012A8F008BCF4E /* main.m */; };
 		CB0C45EB1B012A8F008BCF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C45EA1B012A8F008BCF4E /* AppDelegate.m */; };
 		CB0C45EE1B012A8F008BCF4E /* ThatPlace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB0C45EC1B012A8F008BCF4E /* ThatPlace.xcdatamodeld */; };
@@ -59,6 +60,8 @@
 		965BCA971B015BEB0024AAF0 /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		965BCA991B015D350024AAF0 /* FeedTableViewCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell1.h; sourceTree = "<group>"; };
 		965BCA9A1B015D350024AAF0 /* FeedTableViewCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell1.m; sourceTree = "<group>"; };
+		9F033C661B0E90BD00622327 /* ImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTransformer.h; sourceTree = "<group>"; };
+		9F033C671B0E90BD00622327 /* ImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTransformer.m; sourceTree = "<group>"; };
 		CB0C45E21B012A8F008BCF4E /* ThatPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThatPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0C45E61B012A8F008BCF4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0C45E71B012A8F008BCF4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 				963F6FEB1B02A336003F31AB /* Recurso.m */,
 				963F6FED1B02A441003F31AB /* RecursoStore.h */,
 				963F6FEE1B02A441003F31AB /* RecursoStore.m */,
+				9F033C691B0E90C300622327 /* Transformers */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -145,6 +149,15 @@
 				CB0C45F21B012A8F008BCF4E /* Main.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		9F033C691B0E90C300622327 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				9F033C661B0E90BD00622327 /* ImageTransformer.h */,
+				9F033C671B0E90BD00622327 /* ImageTransformer.m */,
+			);
+			name = Transformers;
 			sourceTree = "<group>";
 		};
 		CB0C45D91B012A8F008BCF4E = {
@@ -312,6 +325,7 @@
 				CB0C46561B039CFB008BCF4E /* CustomAnnotation.m in Sources */,
 				965BCA981B015BEB0024AAF0 /* FeedTableViewController.m in Sources */,
 				963F6FEF1B02A441003F31AB /* RecursoStore.m in Sources */,
+				9F033C681B0E90BD00622327 /* ImageTransformer.m in Sources */,
 				965BCA9B1B015D350024AAF0 /* FeedTableViewCell1.m in Sources */,
 				963F6FE91B029613003F31AB /* MomentoStore.m in Sources */,
 				CB0C45EE1B012A8F008BCF4E /* ThatPlace.xcdatamodeld in Sources */,

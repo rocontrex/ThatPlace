@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [MomentoStore instancia];
 }
 
 - (void)didReceiveMemoryWarning {

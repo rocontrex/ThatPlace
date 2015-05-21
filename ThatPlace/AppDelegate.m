@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//#import "MomentoStore.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +15,7 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //[[MomentoStore sharedStore]setManagedObjectContext:[self managedObjectContext]];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     return YES;
 }
 
