@@ -440,7 +440,7 @@
         <!--Navigation Controller-->
         <scene sceneID="YLe-nd-2tr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UFY-g6-y6Y" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="UFY-g6-y6Y" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mhj-gE-jyo">
