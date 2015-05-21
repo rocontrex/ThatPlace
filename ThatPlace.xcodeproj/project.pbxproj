@@ -14,6 +14,7 @@
 		963F6FE91B029613003F31AB /* MomentoStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 963F6FE81B029613003F31AB /* MomentoStore.m */; };
 		963F6FEC1B02A336003F31AB /* Recurso.m in Sources */ = {isa = PBXBuildFile; fileRef = 963F6FEB1B02A336003F31AB /* Recurso.m */; };
 		963F6FEF1B02A441003F31AB /* RecursoStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 963F6FEE1B02A441003F31AB /* RecursoStore.m */; };
+		964EE5A31B0E815800BDD8CE /* MostrarEditarMomentoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964EE5A21B0E815800BDD8CE /* MostrarEditarMomentoViewController.m */; };
 		965BCA981B015BEB0024AAF0 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA971B015BEB0024AAF0 /* FeedTableViewController.m */; };
 		965BCA9B1B015D350024AAF0 /* FeedTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA9A1B015D350024AAF0 /* FeedTableViewCell1.m */; };
 		9F033C681B0E90BD00622327 /* ImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F033C671B0E90BD00622327 /* ImageTransformer.m */; };
@@ -56,6 +57,8 @@
 		963F6FEB1B02A336003F31AB /* Recurso.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recurso.m; sourceTree = "<group>"; };
 		963F6FED1B02A441003F31AB /* RecursoStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecursoStore.h; sourceTree = "<group>"; };
 		963F6FEE1B02A441003F31AB /* RecursoStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecursoStore.m; sourceTree = "<group>"; };
+		964EE5A11B0E815800BDD8CE /* MostrarEditarMomentoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MostrarEditarMomentoViewController.h; sourceTree = "<group>"; };
+		964EE5A21B0E815800BDD8CE /* MostrarEditarMomentoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostrarEditarMomentoViewController.m; sourceTree = "<group>"; };
 		965BCA961B015BEB0024AAF0 /* FeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewController.h; sourceTree = "<group>"; };
 		965BCA971B015BEB0024AAF0 /* FeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewController.m; sourceTree = "<group>"; };
 		965BCA991B015D350024AAF0 /* FeedTableViewCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableViewCell1.h; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				965BCA961B015BEB0024AAF0 /* FeedTableViewController.h */,
 				965BCA971B015BEB0024AAF0 /* FeedTableViewController.m */,
 				963F6FDB1B0284F3003F31AB /* NovoMomentoViewController.h */,
+				964EE5A11B0E815800BDD8CE /* MostrarEditarMomentoViewController.h */,
+				964EE5A21B0E815800BDD8CE /* MostrarEditarMomentoViewController.m */,
 				963F6FDC1B0284F3003F31AB /* NovoMomentoViewController.m */,
 				CB0C45EF1B012A8F008BCF4E /* ViewController.h */,
 				CB0C45F01B012A8F008BCF4E /* ViewController.m */,
@@ -337,6 +342,7 @@
 				CB0C45E81B012A8F008BCF4E /* main.m in Sources */,
 				CB0C464F1B039B8F008BCF4E /* MainViewController.m in Sources */,
 				963F6FDD1B0284F3003F31AB /* NovoMomentoViewController.m in Sources */,
+				964EE5A31B0E815800BDD8CE /* MostrarEditarMomentoViewController.m in Sources */,
 				963F6FEC1B02A336003F31AB /* Recurso.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
