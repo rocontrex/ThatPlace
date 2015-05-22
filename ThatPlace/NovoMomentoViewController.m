@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfTitulo;
 @property (weak, nonatomic) IBOutlet UITextView *tvDescricao;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIView *contentScrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentView_constraintHeight;
 
 @property (nonatomic) Momento *momentoBase;
 
@@ -26,9 +28,7 @@ NSString * path;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSMutableArray *m = [[MomentoStore instancia] getAllMoments];
-    NSLog(@"%lu", m.count);
+    [self adjustContentView];
     
     documentDir =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     path = [documentDir stringByAppendingPathComponent:@"imagem.igo"];
@@ -89,19 +89,36 @@ NSString * path;
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.tfData resignFirstResponder];
     [self.tfTitulo resignFirstResponder];
+    [self.tvDescricao resignFirstResponder];
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField{
-    [self.tfTitulo resignFirstResponder];
+    [textField resignFirstResponder];
     return YES;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+- (void) adjustContentView{
+    UIView *lo = [self.contentScrollView.subviews lastObject];
+    NSInteger oy = lo.frame.origin.y;
+    NSInteger ht = lo.frame.size.height;
+    
+    NSLog(@"oy: %d / ht: %d", oy, ht);
+    
+    CGRect novoframe = self.contentScrollView.frame;
+    novoframe.size.height = oy + ht;
+    self.contentScrollView.frame = novoframe;
+    self.contentView_constraintHeight.constant = oy+ht;
+    
+    NSLog(@"%f", self.contentScrollView.frame.size.height);
+    NSLog(@"%f", self.contentView_constraintHeight.constant);
+
+}
 
 
 @end
