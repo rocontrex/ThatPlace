@@ -18,6 +18,7 @@
 		965BCA981B015BEB0024AAF0 /* FeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA971B015BEB0024AAF0 /* FeedTableViewController.m */; };
 		965BCA9B1B015D350024AAF0 /* FeedTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA9A1B015D350024AAF0 /* FeedTableViewCell1.m */; };
 		9F033C681B0E90BD00622327 /* ImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F033C671B0E90BD00622327 /* ImageTransformer.m */; };
+		9F033C6B1B0FC29A00622327 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9F033C6A1B0FC29A00622327 /* .gitignore */; };
 		CB0C45E81B012A8F008BCF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C45E71B012A8F008BCF4E /* main.m */; };
 		CB0C45EB1B012A8F008BCF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0C45EA1B012A8F008BCF4E /* AppDelegate.m */; };
 		CB0C45EE1B012A8F008BCF4E /* ThatPlace.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB0C45EC1B012A8F008BCF4E /* ThatPlace.xcdatamodeld */; };
@@ -65,6 +66,7 @@
 		965BCA9A1B015D350024AAF0 /* FeedTableViewCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableViewCell1.m; sourceTree = "<group>"; };
 		9F033C661B0E90BD00622327 /* ImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTransformer.h; sourceTree = "<group>"; };
 		9F033C671B0E90BD00622327 /* ImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTransformer.m; sourceTree = "<group>"; };
+		9F033C6A1B0FC29A00622327 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		CB0C45E21B012A8F008BCF4E /* ThatPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThatPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0C45E61B012A8F008BCF4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0C45E71B012A8F008BCF4E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		CB0C45D91B012A8F008BCF4E = {
 			isa = PBXGroup;
 			children = (
+				9F033C6A1B0FC29A00622327 /* .gitignore */,
 				CB0C46521B039C2A008BCF4E /* CoreLocation.framework */,
 				CB0C46501B039C23008BCF4E /* MapKit.framework */,
 				CB0C45E41B012A8F008BCF4E /* ThatPlace */,
@@ -307,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F033C6B1B0FC29A00622327 /* .gitignore in Resources */,
 				CB0C45F41B012A8F008BCF4E /* Main.storyboard in Resources */,
 				CB0C45F91B012A8F008BCF4E /* LaunchScreen.xib in Resources */,
 				CB0C45F61B012A8F008BCF4E /* Images.xcassets in Resources */,
