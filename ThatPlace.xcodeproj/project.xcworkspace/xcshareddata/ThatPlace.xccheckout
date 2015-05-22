@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>1474CD2B-83F7-4CA8-A1CA-14AEFA59CADB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>ThatPlace</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E75E214F1E50E0D730FAFF80A02F4BA26EBEA4F3</key>
 		<string>https://github.com/rocontrex/ThatPlace.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ThatPlace.xcodeproj</string>
+	<string>ThatPlace.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E75E214F1E50E0D730FAFF80A02F4BA26EBEA4F3</key>
