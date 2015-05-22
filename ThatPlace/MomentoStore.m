@@ -28,7 +28,7 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"Momento";
         instancia = [[self alloc] initPrivate];
         instancia.managedObjectContext = appDelegate.managedObjectContext;
         
-        [instancia zerarStoredData];
+        //[instancia zerarStoredData];
     }
     
     return instancia;
@@ -72,6 +72,12 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"Momento";
     momento.data = data;
     momento.foto = foto;
     momento.tipopino = tipopino;
+    
+    NSError *error;
+    
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Could not save %@, %@", error, error.userInfo);
+    }
     
     return momento;
 }

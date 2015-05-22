@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Momento.h"
 
-@interface NovoMomentoViewController : UIViewController
+@interface NovoMomentoViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @end

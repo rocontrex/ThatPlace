@@ -10,40 +10,98 @@
 #import "MomentoStore.h"
 
 @interface NovoMomentoViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *tfData;
 @property (weak, nonatomic) IBOutlet UITextField *tfTitulo;
 @property (weak, nonatomic) IBOutlet UITextView *tvDescricao;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (nonatomic) Momento *momentoBase;
 
 @end
 
 @implementation NovoMomentoViewController
 
+NSString * documentDir;
+NSString * path;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSMutableArray *n = [[MomentoStore instancia] getAllMoments];
-    NSLog(@"%lu", (unsigned long)n.count);
+    
+    NSMutableArray *m = [[MomentoStore instancia] getAllMoments];
+    NSLog(@"%lu", m.count);
+    
+    documentDir =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    path = [documentDir stringByAppendingPathComponent:@"imagem.igo"];
+    
+    
 }
+- (IBAction)SalvarMomento:(id)sender {
+}
+
+- (IBAction)TirarFoto:(id)sender {
+    UIImagePickerController * picker;
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing=YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        [self createThumbnail];
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+}
+
+- (IBAction)RoloCamera:(id)sender {
+    UIImagePickerController * picker;
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+        picker = [[UIImagePickerController alloc] init];
+        picker.delegate=self;
+        picker.allowsEditing=YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        
+        [self createThumbnail];
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
+}
+
+-(void) createThumbnail{
+    UIImage *originalImage = self.imageView.image; // Give your original Image
+    CGSize destinationSize = CGSizeMake(25, 25); // Give your Desired thumbnail Size
+    UIGraphicsBeginImageContext(destinationSize);
+    [originalImage drawInRect:CGRectMake(0,0,destinationSize.width,destinationSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    NSData *thumbNailimageData = UIImagePNGRepresentation(newImage);
+    UIGraphicsEndImageContext();
+    
+    [thumbNailimageData writeToFile:path atomically:NO];
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.imageView.image = chosenImage;
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.tfTitulo resignFirstResponder];
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *) textField{
+    [self.tfTitulo resignFirstResponder];
+    return YES;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-- (IBAction)btMaisFoto:(id)sender {
-    //Tirar fotografia
-}
-- (IBAction)btAudio:(id)sender {
-    //Gravar audio
-}
 
-- (IBAction)btSalvar:(id)sender {
-    //[[MomentoStore sharedStore]createMomentoWithTitulo:self.tfTitulo.text andDescricao:self.tvDescricao.text andIdUsuario:NULL];
-    //[[MomentoStore sharedStore] saveChanges];
-    [self.navigationController popViewControllerAnimated:YES];
-    //[[MomentoStore sharedStore] getAllMomento];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
 
 
 @end

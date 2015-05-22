@@ -20,4 +20,7 @@
 @property (nonatomic, retain) UIImage *foto;
 @property (nonatomic) int tipopino; //Basic: 0 - Família, 1 - Feliz, 2 - Tristeza
 
+- (id) initWithLatitude: (float) latitude andLongitude: (float) longitude;
+- (id) initWithLatitude: (float) latitude andLongitude: (float) longitude andData : (NSDate *) data;
+
 @end
