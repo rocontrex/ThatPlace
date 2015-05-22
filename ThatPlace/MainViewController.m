@@ -10,6 +10,7 @@
 #import "CustomAnnotation.h"
 #import "MomentoStore.h"
 #import "Momento.h"
+#import "NovoMomentoViewController.h"
 
 @interface MainViewController (){
     NSInteger i;
@@ -106,7 +107,10 @@
 }
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    [self performSegueWithIdentifier:@"segueCadastroMomento" sender:view];
+    UIStoryboard *storyboard = self.storyboard;
+    NovoMomentoViewController *controlador = [storyboard instantiateViewControllerWithIdentifier:@"NovoMomentoViewController"];
+    if(controlador)
+        [self presentViewController:controlador animated:YES completion:NULL];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation{

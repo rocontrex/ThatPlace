@@ -28,7 +28,7 @@ NSString * path;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self adjustContentView];
+    //[self adjustContentView];
     
     documentDir =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     path = [documentDir stringByAppendingPathComponent:@"imagem.igo"];
