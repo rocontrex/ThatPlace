@@ -106,7 +106,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" highlightedImage="thatplace-18" translatesAutoresizingMaskIntoConstraints="NO" id="yod-s9-Dik">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yod-s9-Dik">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4Y-5U-v7g">
@@ -627,7 +627,6 @@
         <image name="AddScreen_backgroundBox" width="1421" height="409"/>
         <image name="AddScreen_imageDefault" width="1565" height="1326"/>
         <image name="mapViewBotao1" width="59" height="49"/>
-        <image name="thatplace-18" width="1563" height="2779"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="evn-ve-Y46"/>

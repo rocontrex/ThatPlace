@@ -81,7 +81,7 @@
     Momento *momento = [self.arrayMomentos objectAtIndex:indexPath.row];
    
     cell.lbTitulo.text = momento.titulo;
-    //cell.lbData.text = momento.data;
+    cell.lbData.text = momento.data;
     cell.imBackgroudImage.image = momento.foto;
     
     NSLog(@"Descricao: %@",momento.descricao);
