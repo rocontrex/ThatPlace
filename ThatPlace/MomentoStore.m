@@ -28,7 +28,7 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"Momento";
         instancia = [[self alloc] initPrivate];
         instancia.managedObjectContext = appDelegate.managedObjectContext;
         
-        //[instancia zerarStoredData];
+        [instancia zerarStoredData];
     }
     
     return instancia;
@@ -110,5 +110,6 @@ static NSString *DATA_MODEL_ENTITY_NAME = @"Momento";
     return nma;
 
 }
+
 
 @end

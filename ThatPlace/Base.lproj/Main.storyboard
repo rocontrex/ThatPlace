@@ -245,6 +245,13 @@
                                                             <action selector="RoloCamera:" destination="7AH-cF-VRA" eventType="touchUpInside" id="Y7r-zY-XqF"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWu-OG-q61">
+                                                        <rect key="frame" x="8" y="13" width="69" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="Voltar">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -268,7 +275,7 @@
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="7AH-cF-VRA" id="egX-Uh-QEN"/>
                                                 </connections>
@@ -280,7 +287,7 @@
                                                     <constraint firstAttribute="height" constant="128" id="m2l-7Y-7Kq"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="alphabet"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="7AH-cF-VRA" id="NQa-fi-0I3"/>
                                                 </connections>
@@ -292,7 +299,7 @@
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="7AH-cF-VRA" id="wfY-70-1bo"/>
                                                 </connections>
@@ -353,6 +360,9 @@
                                         <exclude reference="DIs-IF-ZHL"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="7AH-cF-VRA" id="PBx-eP-wBj"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -367,17 +377,20 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="780"/>
                     <connections>
+                        <outlet property="btVoltar" destination="rWu-OG-q61" id="bY5-ok-b03"/>
                         <outlet property="contentScrollView" destination="mga-81-aGJ" id="kGn-u3-AMU"/>
                         <outlet property="contentView_constraintHeight" destination="QrK-Xm-s7h" id="pE9-1k-jfc"/>
                         <outlet property="imageView" destination="BGR-qu-hEp" id="mgL-hU-rzY"/>
                         <outlet property="tfData" destination="ur9-S2-TAY" id="SXb-lb-34y"/>
+                        <outlet property="tfData_constraintHeight" destination="xZW-ho-yLv" id="2Nc-wn-5eZ"/>
+                        <outlet property="tfData_constraintVertical" destination="nxB-GI-YA6" id="FH7-tY-lUm"/>
                         <outlet property="tfTitulo" destination="fjr-cp-gFp" id="ehz-7X-cwh"/>
                         <outlet property="tvDescricao" destination="2tx-2k-Kmi" id="Ng9-Tc-Lpo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mO-j7-d4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-757.5" y="-388.5"/>
+            <point key="canvasLocation" x="-757.5" y="-389"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Nv9-3S-oVq">

@@ -11,4 +11,6 @@
 
 @interface NovoMomentoViewController : UIViewController <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
+@property (nonatomic) Momento *momentoBase;
+
 @end

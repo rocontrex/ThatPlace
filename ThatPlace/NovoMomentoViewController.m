@@ -11,14 +11,16 @@
 
 @interface NovoMomentoViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *tfData;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tfData_constraintHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tfData_constraintVertical;
 @property (weak, nonatomic) IBOutlet UITextField *tfTitulo;
 @property (weak, nonatomic) IBOutlet UITextView *tvDescricao;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIView *contentScrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentView_constraintHeight;
+@property (weak, nonatomic) IBOutlet UIButton *btVoltar;
 
-@property (nonatomic) Momento *momentoBase;
-
+@property (nonatomic) UIGestureRecognizer *tapper;
 @end
 
 @implementation NovoMomentoViewController
@@ -28,12 +30,43 @@ NSString * path;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self adjustContentView];
+    
+    self.tapper = [[UITapGestureRecognizer alloc]
+              initWithTarget:self action:@selector(handleSingleTap:)];
+    self.tapper.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:self.tapper];
+    
+    if (self.momentoBase.data != nil) {
+        self.tfData_constraintHeight.constant = 0;
+        self.tfData_constraintVertical.constant = 0;
+        [self.tfData updateConstraints];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     
     documentDir =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     path = [documentDir stringByAppendingPathComponent:@"imagem.igo"];
-    
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self adjustContentView];
+    [self desenharTextFields];
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *) sender{
+    [self.view endEditing:YES];
+}
+
+- (IBAction)voltarNavigation:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)SalvarMomento:(id)sender {
 }
@@ -92,11 +125,32 @@ NSString * path;
     [self.tfData resignFirstResponder];
     [self.tfTitulo resignFirstResponder];
     [self.tvDescricao resignFirstResponder];
+    
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *) textField{
     [textField resignFirstResponder];
     return YES;
+}
+
+- (void)keyboardWillShow:(NSNotification*)notification {
+    NSDictionary *info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    CGRect frameMaster = self.view.frame;
+    frameMaster.origin.y -= kbSize.height;
+    self.view.frame = frameMaster;
+    
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification {
+    NSDictionary *info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    CGRect frameMaster = self.view.frame;
+    frameMaster.origin.y += kbSize.height;
+    self.view.frame = frameMaster;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,11 +168,24 @@ NSString * path;
     novoframe.size.height = oy + ht;
     self.contentScrollView.frame = novoframe;
     self.contentView_constraintHeight.constant = oy+ht;
+    [self.contentScrollView updateConstraints];
     
     NSLog(@"%f", self.contentScrollView.frame.size.height);
     NSLog(@"%f", self.contentView_constraintHeight.constant);
 
 }
 
+//Drawing
+- (void) desenharTextFields{
+    CGRect rectView = CGRectMake(0, 0, 8, self.tfData.frame.size.height);
+    
+    UIView *boxUser = [[UIView alloc] initWithFrame:rectView];
+    UIView *boxPass = [[UIView alloc] initWithFrame:rectView];
+    
+    [self.tfData setLeftViewMode:UITextFieldViewModeAlways];
+    self.tfData.leftView = boxUser;
+    [self.tfTitulo setLeftViewMode:UITextFieldViewModeAlways];
+    self.tfTitulo.leftView =boxPass;
+}
 
 @end
