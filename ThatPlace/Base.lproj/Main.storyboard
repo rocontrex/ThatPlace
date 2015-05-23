@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UFY-g6-y6Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WaY-LP-JJb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -191,13 +191,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AddScreen_imageDefault" translatesAutoresizingMaskIntoConstraints="NO" id="HWP-cE-qlq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Título" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVP-rF-pL1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Título" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QVP-rF-pL1">
                                 <rect key="frame" x="139" y="352" width="97" height="30"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Adicionar alguma descrição sobre este momento." translatesAutoresizingMaskIntoConstraints="NO" id="6W4-ew-Cq2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Adicionar alguma descrição sobre este momento." translatesAutoresizingMaskIntoConstraints="NO" id="6W4-ew-Cq2">
                                 <rect key="frame" x="67" y="398" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -221,10 +221,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DD/MM/AAAA" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UFw-Ws-amd">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DD/MM/AAAA" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UFw-Ws-amd">
                                 <rect key="frame" x="267" y="584" width="92" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgD-Hc-BeJ">
                                 <rect key="frame" x="0.0" y="622" width="375" height="45"/>
@@ -234,6 +234,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btEditar:" destination="WaY-LP-JJb" eventType="touchUpInside" id="AFQ-iB-tQX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujt-Ek-e01">
                                 <rect key="frame" x="314" y="62" width="45" height="45"/>
@@ -242,6 +245,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btTirarFoto:" destination="WaY-LP-JJb" eventType="touchUpInside" id="GGV-Le-aHb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fF-fh-yGM">
                                 <rect key="frame" x="261" y="62" width="45" height="45"/>
@@ -250,12 +256,18 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btAlbum:" destination="WaY-LP-JJb" eventType="touchUpInside" id="9kE-qN-RdU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="btAlbum" destination="3fF-fh-yGM" id="k5n-Go-ifP"/>
+                        <outlet property="btSalvar" destination="9C0-ua-cSQ" id="pJF-6g-0jF"/>
+                        <outlet property="btTirarFoto" destination="Ujt-Ek-e01" id="arn-fJ-2CS"/>
                         <outlet property="imFoto" destination="HWP-cE-qlq" id="ELe-yW-vMW"/>
                         <outlet property="tfData" destination="UFw-Ws-amd" id="T8a-Sj-hXI"/>
                         <outlet property="tfTitulo" destination="QVP-rF-pL1" id="v8K-bB-f2V"/>
@@ -667,6 +679,6 @@
         <image name="mapViewBotao1" width="59" height="49"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="evn-ve-Y46"/>
+        <segue reference="icC-a5-ygA"/>
     </inferredMetricsTieBreakers>
 </document>
