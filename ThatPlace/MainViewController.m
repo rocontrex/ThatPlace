@@ -10,6 +10,7 @@
 #import "CustomAnnotation.h"
 #import "MomentoStore.h"
 #import "Momento.h"
+#import "NovoMomentoViewController.h"
 
 @interface MainViewController (){
     NSInteger i;

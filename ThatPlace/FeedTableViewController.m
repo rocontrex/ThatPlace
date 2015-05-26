@@ -13,7 +13,7 @@
 #import "UsuarioStore.h"
 @interface FeedTableViewController () //<UITableViewDataSource, UITableViewDelegate,NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableViewFeed;
-@property (weak, nonatomic) NSArray *arrayMomentos;
+@property (weak, nonatomic) NSMutableArray *arrayMomentos;
 //@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
 
@@ -21,6 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.arrayMomentos = [[MomentoStore instancia] getAllMoments];
+    NSLog(@"%lu", [self.arrayMomentos count]);
     
     //_arrayMomentos = [[MomentoStore sharedStore] getAllMomento];
 }
@@ -33,20 +36,20 @@
     return [[UsuarioStore sharedStore] fetchedResultsController];
 }
 //Adicionado
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    //[[MomentoStore sharedStore] loadAllMomento];
-    //_arrayMomentos = [[MomentoStore sharedStore] getAllMomento];
-     //[self.tableViewFeed reloadData];
-    for(Momento *mom in self.arrayMomentos){
-        NSLog(@"%@", mom.titulo);
-    }
-    
-    [self.tableViewFeed reloadData];
-}
+//-(void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//    //[[MomentoStore sharedStore] loadAllMomento];
+//    //_arrayMomentos = [[MomentoStore sharedStore] getAllMomento];
+//     //[self.tableViewFeed reloadData];
+//    for(Momento *mom in self.arrayMomentos){
+//        NSLog(@"%@", mom.titulo);
+//    }
+//    
+//    [self.tableViewFeed reloadData];
+//}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;//[[[MomentoStore sharedStore]getAllMomento]count];
+    return [self.arrayMomentos count];
 }
 
 /**---------------------------------------------------------------------------------------------**/
@@ -75,10 +78,13 @@
                 UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    //Momento *momento = [[[MomentoStore sharedStore]getAllMomento] objectAtIndex:indexPath.row];
+    Momento *momento = [self.arrayMomentos objectAtIndex:indexPath.row];
    
-    //cell.lbTitulo.text = momento.titulo;
-    //NSLog(@"Descricao: %@",momento.descricao);
+    cell.lbTitulo.text = momento.titulo;
+    cell.lbData.text = momento.data;
+    cell.imBackgroudImage.image = momento.foto;
+    
+    NSLog(@"Descricao: %@",momento.descricao);
     
     return cell;
 }

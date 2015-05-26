@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Momento.h"
 
-@interface MostrarEditarMomentoViewController : UIViewController
+@interface MostrarEditarMomentoViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic) Momento *momento;
 
