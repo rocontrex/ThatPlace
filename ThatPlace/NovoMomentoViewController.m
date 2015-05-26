@@ -68,7 +68,9 @@ NSString * path;
 - (IBAction)voltarNavigation:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (IBAction)SalvarMomento:(id)sender {
+    
 }
 
 - (IBAction)TirarFoto:(id)sender {
@@ -91,7 +93,6 @@ NSString * path;
         picker.delegate=self;
         picker.allowsEditing=YES;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
         
         [self createThumbnail];
         [self presentViewController:picker animated:YES completion:NULL];
